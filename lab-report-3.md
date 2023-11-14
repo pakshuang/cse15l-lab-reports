@@ -86,7 +86,8 @@ events [ 10 ] . In this paper we study whether BMI at
         CHS Cardiovascular Health Study
 ```
 
-This also matches "Study", which is not matched by the default case-sensitive search.
+This matches all lines that contain "study", regardless of case.
+It is useful when searching for all instances such as "Study", which is not matched by the default case-sensitive search.
 
 `grep -i "Clinical" technical/biomed/1468-6708-3-1.txt`
 
@@ -102,7 +103,8 @@ This also matches "Study", which is not matched by the default case-sensitive se
         YHL as the outcome measure in clinical trials involving
 ```
 
-This also matches "clinical", which is not matched by the default case-sensitive search.
+This matches all lines that contain "Clinical", regardless of case.
+It is useful when searching for all instances such as "clinical", which is not matched by the default case-sensitive search.
 
 ### `-n` - print line numbers
 
@@ -114,7 +116,8 @@ This also matches "clinical", which is not matched by the default case-sensitive
 100:          months, YHL has a reasonably continuous distribution. A
 ```
 
-This shows the line numbers of the lines that match the search term.
+This functions as a regular search, except that the line numbers of the lines that match the search term are also shown.
+This is useful for identifying the line numbers of the lines that match the search term.
 
 `grep -n "risk factors" technical/biomed/1468-6708-3-1.txt`
 
@@ -124,7 +127,8 @@ This shows the line numbers of the lines that match the search term.
 383:          effects of obesity on risk factors for future health. A
 ```
 
-This shows the line numbers of the lines that match the search term.
+This functions as a regular search, except that the line numbers of the lines that match the search term are also shown.
+This is useful for identifying the line numbers of the lines that match the search term.
 
 ### `-v` - invert match
 
@@ -134,7 +138,8 @@ This shows the line numbers of the lines that match the search term.
 429
 ```
 
-This shows the number of lines that do not match the search term.
+This shows the lines that do not match the search term, instead of the lines that do match the search term.
+This is useful for eliminating lines that match the search term.
 
 `grep -v "health" technical/biomed/1468-6708-3-1.txt | wc -l`
   
@@ -142,7 +147,8 @@ This shows the number of lines that do not match the search term.
 388
 ```
 
-This shows the number of lines that do not match the search term.
+This shows the lines that do not match the search term, instead of the lines that do match the search term.
+This is useful for eliminating lines that match the search term.
 
 ### `-c` - print count
 
@@ -153,6 +159,7 @@ This shows the number of lines that do not match the search term.
 ```
 
 This shows the number of lines that match the search term.
+This is useful when determining the frequency of the search term, instead of the lines themselves.
 
 `grep -c "health" technical/biomed/1468-6708-3-1.txt`
   
@@ -161,5 +168,8 @@ This shows the number of lines that match the search term.
 ```
 
 This shows the number of lines that match the search term.
+This is useful when determining the frequency of the search term, instead of the lines themselves.
 
 Information source: Github Copilot
+
+Github Copilot was used to suggest 4 command-line options for `grep`. The specific examples and explanations where written by me, referencing `man grep`.
